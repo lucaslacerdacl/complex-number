@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 
 #include "./interfaces/complex.h"
 #include "./implementations/complex.h"
