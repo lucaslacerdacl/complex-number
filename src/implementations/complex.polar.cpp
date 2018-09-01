@@ -42,7 +42,7 @@ double Complex::GetImaginaryNumber()
 
 double Complex::Module()
 {
-    std::fabs(GetRealNumber());
+    return std::abs(GetRealNumber());
 };
 
 Complex Complex::Conjugated()
