@@ -1,3 +1,7 @@
+#include <cmath>
+
+#include "../interfaces/complex.h"
+
 #pragma region[Constructors]
 
 Complex::Complex(void)
@@ -38,22 +42,21 @@ double Complex::GetImaginaryNumber()
 
 double Complex::Module()
 {
-    double squaredRealNumber = pow(_realNumber, 2);
-    double squaredImaginaryNumber = pow(_imaginaryNumber, 2);
+    double squaredRealNumber = pow(GetRealNumber(), 2);
+    double squaredImaginaryNumber = pow(GetImaginaryNumber(), 2);
     return sqrt(squaredRealNumber + squaredImaginaryNumber);
 };
 
 Complex Complex::Conjugated()
 {
-    double imaginaryNumberInverse = -_imaginaryNumber;
-    Complex conjugated(_realNumber, -_imaginaryNumber);
+    Complex conjugated(GetRealNumber(), -GetImaginaryNumber());
     return conjugated;
 };
 
 Complex Complex::Invert()
 {
-    double denominator = pow(_realNumber, 2) + pow(_imaginaryNumber, 2);
-    Complex resultComplex(_realNumber / denominator, _imaginaryNumber / denominator);
+    double denominator = pow(GetRealNumber(), 2) + pow(GetImaginaryNumber(), 2);
+    Complex resultComplex(GetRealNumber() / denominator, GetImaginaryNumber() / denominator);
     return resultComplex;
 };
 
@@ -63,7 +66,7 @@ Complex Complex::Invert()
 
 bool Complex::operator==(Complex x)
 {
-    if (_realNumber == x.GetRealNumber() && _imaginaryNumber == x.GetImaginaryNumber())
+    if (GetRealNumber() == x.GetRealNumber() && GetImaginaryNumber() == x.GetImaginaryNumber())
     {
         return true;
     }
@@ -83,34 +86,34 @@ bool Complex::operator=(Complex x)
 
 Complex Complex::operator-()
 {
-    Complex oppositeComplex(-_realNumber, -_imaginaryNumber);
+    Complex oppositeComplex(-GetRealNumber(), -GetImaginaryNumber());
     return oppositeComplex;
 };
 
 Complex Complex::operator+(Complex complexToBeAdd)
 {
-    double realNumberResult = _realNumber + complexToBeAdd.GetRealNumber();
-    double imaginaryNumberResult = _imaginaryNumber + complexToBeAdd.GetImaginaryNumber();
+    double realNumberResult = GetRealNumber() + complexToBeAdd.GetRealNumber();
+    double imaginaryNumberResult = GetImaginaryNumber() + complexToBeAdd.GetImaginaryNumber();
     Complex resultComplex(realNumberResult, imaginaryNumberResult);
     return resultComplex;
 };
 
 Complex Complex::operator-(Complex complexToBeSubtract)
 {
-    double realNumberResult = _realNumber - complexToBeSubtract.GetRealNumber();
-    double imaginaryNumberResult = _imaginaryNumber - complexToBeSubtract.GetImaginaryNumber();
+    double realNumberResult = GetRealNumber() - complexToBeSubtract.GetRealNumber();
+    double imaginaryNumberResult = GetImaginaryNumber() - complexToBeSubtract.GetImaginaryNumber();
     Complex resultComplex(realNumberResult, imaginaryNumberResult);
     return resultComplex;
 };
 
 Complex Complex::operator*(Complex complexToBeMultiplicate)
 {
-    double realNumberMultiplicate = _realNumber * complexToBeMultiplicate.GetRealNumber();
-    double imaginaryNumberMultiplicate = _imaginaryNumber * complexToBeMultiplicate.GetImaginaryNumber();
+    double realNumberMultiplicate = GetRealNumber() * complexToBeMultiplicate.GetRealNumber();
+    double imaginaryNumberMultiplicate = GetImaginaryNumber() * complexToBeMultiplicate.GetImaginaryNumber();
     double realNumberResult = realNumberMultiplicate - imaginaryNumberMultiplicate;
 
-    double realNumberMultiplicateImaginaryNumber = _realNumber * complexToBeMultiplicate.GetImaginaryNumber();
-    double imaginaryNumberMultiplicateRealNumber = _imaginaryNumber * complexToBeMultiplicate.GetRealNumber();
+    double realNumberMultiplicateImaginaryNumber = GetRealNumber() * complexToBeMultiplicate.GetImaginaryNumber();
+    double imaginaryNumberMultiplicateRealNumber = GetImaginaryNumber() * complexToBeMultiplicate.GetRealNumber();
     double imaginaryNumberResult = realNumberMultiplicateImaginaryNumber + imaginaryNumberMultiplicateRealNumber;
 
     Complex resultComplex(realNumberResult, imaginaryNumberResult);
@@ -119,7 +122,7 @@ Complex Complex::operator*(Complex complexToBeMultiplicate)
 
 Complex Complex::operator/(Complex complexToBeDivided)
 {
-    Complex currentComplex(_realNumber, _imaginaryNumber);
+    Complex currentComplex(GetRealNumber(), GetImaginaryNumber());
     Complex numerator = currentComplex * complexToBeDivided.Conjugated();
     double denominator = pow(complexToBeDivided.GetRealNumber(), 2) + pow(complexToBeDivided.GetImaginaryNumber(), 2);
 
