@@ -47,7 +47,7 @@ double Complex::Module()
 
 Complex Complex::Conjugated()
 {
-    Complex conjugated(GetRealNumber(), -GetImaginaryNumber());
+    Complex conjugated(GetRealNumber(), 360 - GetImaginaryNumber());
     return conjugated;
 };
 
