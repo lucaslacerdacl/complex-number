@@ -1,5 +1,4 @@
 #include <cmath>
-
 #include "../interfaces/complex.h"
 
 #pragma region[Constructors]
@@ -77,11 +76,10 @@ bool Complex::operator==(Complex x)
     }
 };
 
-bool Complex::operator=(Complex x)
+void Complex::operator=(Complex x)
 {
     _realNumber = x.GetRealNumber();
     _imaginaryNumber = x.GetImaginaryNumber();
-    return true;
 };
 
 Complex Complex::operator-()

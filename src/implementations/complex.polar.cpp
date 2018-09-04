@@ -1,6 +1,7 @@
 #include <cmath>
-
 #include "../interfaces/complex.h"
+
+#define PI 180
 
 #pragma region[Constructors]
 
@@ -47,7 +48,9 @@ double Complex::Module()
 
 Complex Complex::Conjugated()
 {
-    Complex conjugated(GetRealNumber(), 360 - GetImaginaryNumber());
+    float rounds = GetImaginaryNumber() / (2 * PI);
+    int maxAngle = (2 * PI) * ceil(rounds);
+    Complex conjugated(GetRealNumber(), maxAngle - GetImaginaryNumber());
     return conjugated;
 };
 
@@ -74,16 +77,15 @@ bool Complex::operator==(Complex x)
     }
 };
 
-bool Complex::operator=(Complex x)
+void Complex::operator=(Complex x)
 {
     _realNumber = x.GetRealNumber();
     _imaginaryNumber = x.GetImaginaryNumber();
-    return true;
 };
 
 Complex Complex::operator-()
 {
-    Complex oppositeComplex(-GetRealNumber(), GetImaginaryNumber() + 180);
+    Complex oppositeComplex(-GetRealNumber(), GetImaginaryNumber() + (2 * PI));
     return oppositeComplex;
 };
 
@@ -111,7 +113,7 @@ Complex Complex::operator-(Complex complexToBeSubtract)
     double complexToBeSubtractRealNumberAsEuclidean = cos(complexToBeSubtract.GetImaginaryNumber()) * complexToBeSubtract.Module();
     double complexToBeSubtractImaginaryNumberAsEuclidean = sin(complexToBeSubtract.GetImaginaryNumber()) * complexToBeSubtract.Module();
 
-    double realNumberResultAsPolar = sqrt(pow(imaginaryNumberAsEuclidean - complexToBeSubtractImaginaryNumberAsEuclidean,2) + pow(realNumberAsEuclidean - complexToBeSubtractRealNumberAsEuclidean, 2));
+    double realNumberResultAsPolar = sqrt(pow(imaginaryNumberAsEuclidean - complexToBeSubtractImaginaryNumberAsEuclidean, 2) + pow(realNumberAsEuclidean - complexToBeSubtractRealNumberAsEuclidean, 2));
     double imaginaryNumberResultAsPolar = atan((complexToBeSubtractImaginaryNumberAsEuclidean - imaginaryNumberAsEuclidean)/(complexToBeSubtractRealNumberAsEuclidean - realNumberAsEuclidean));
     
     Complex result(realNumberResultAsPolar, imaginaryNumberResultAsPolar);

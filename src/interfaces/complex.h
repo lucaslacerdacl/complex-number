@@ -11,7 +11,7 @@ class Complex
     Complex Invert();
 
     bool operator==(Complex x);
-    bool operator=(Complex x);
+    void operator=(Complex x);
 
     Complex operator-();
     Complex operator+(Complex complexToBeAdd);
