@@ -30,7 +30,7 @@ The first parameter is the real number (x axis) and the second is the imaginary 
 
 ### Setting up
 
-Execute the `run.complex.sh` file to generate the binary files.
+Execute the `run.complex.sh` file to generate the binary files inside `dist` folder.
 
 For OSX:
 ```shell
