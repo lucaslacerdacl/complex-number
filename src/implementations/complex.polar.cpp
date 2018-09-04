@@ -85,7 +85,7 @@ void Complex::operator=(Complex x)
 
 Complex Complex::operator-()
 {
-    Complex oppositeComplex(-GetRealNumber(), GetImaginaryNumber() + (2 * PI));
+    Complex oppositeComplex(-GetRealNumber(), GetImaginaryNumber());
     return oppositeComplex;
 };
 
