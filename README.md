@@ -30,14 +30,17 @@ The first parameter is the real number (x axis) and the second is the imaginary 
 
 ### Setting up
 
-To run the example file, use the code bellow:
+Execute the `run.complex.sh` file to generate the binary files.
 
+For OSX:
 ```shell
-git clone https://github.com/LucasLacerdaCL/complex-number.git
-cd complex-number/src/build
+sh ./run.complex.sh
 ```
 
-Execute `./run.polar.sh` to use polar implementation or `./run.euclidean.sh` to use polar implementation.
+For Windows:
+```shell
+./run.complex.sh
+```
 
 ## Licensing
 
