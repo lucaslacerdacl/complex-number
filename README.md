@@ -34,12 +34,12 @@ Execute the `run.complex.sh` file to generate the binary files inside `dist` fol
 
 For OSX:
 ```shell
-sh ./run.complex.sh
+sh ./run.sh
 ```
 
 For Windows:
 ```shell
-./run.complex.sh
+./run.sh
 ```
 
 ## Licensing
