@@ -35,4 +35,7 @@
 .vscode
 
 # Dist
-!src/dist/*
+!src/dist/*.o
+
+# Packages
+packages
