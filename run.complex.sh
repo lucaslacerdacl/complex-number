@@ -1,3 +1,7 @@
+Echo "Clean Dist folder"
+rm -rf ./src/dist
+mkdir ./src/dist
+
 Echo "Generating polar binary"
 g++ -c ./src/implementations/complex.polar.cpp
 rm -rf ./src/dist/complex.polar.o
