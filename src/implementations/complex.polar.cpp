@@ -98,7 +98,7 @@ Complex Complex::operator+(Complex complexToBeAdd)
     double complexToBeAddImaginaryNumberAsEuclidean = sin(complexToBeAdd.GetImaginaryNumber()) * complexToBeAdd.Module();
 
     double realNumberResultAsPolar = sqrt(pow(imaginaryNumberAsEuclidean + complexToBeAddImaginaryNumberAsEuclidean,2) + pow(realNumberAsEuclidean + complexToBeAddRealNumberAsEuclidean, 2));
-    double imaginaryNumberResultAsPolar = atan((complexToBeAddImaginaryNumberAsEuclidean + imaginaryNumberAsEuclidean)/(complexToBeAddRealNumberAsEuclidean + realNumberAsEuclidean));
+    double imaginaryNumberResultAsPolar = std::atan2((complexToBeAddImaginaryNumberAsEuclidean + imaginaryNumberAsEuclidean), (complexToBeAddRealNumberAsEuclidean + realNumberAsEuclidean));
     
     Complex result(realNumberResultAsPolar, imaginaryNumberResultAsPolar);
 
@@ -114,8 +114,8 @@ Complex Complex::operator-(Complex complexToBeSubtract)
     double complexToBeSubtractImaginaryNumberAsEuclidean = sin(complexToBeSubtract.GetImaginaryNumber()) * complexToBeSubtract.Module();
 
     double realNumberResultAsPolar = sqrt(pow(imaginaryNumberAsEuclidean - complexToBeSubtractImaginaryNumberAsEuclidean, 2) + pow(realNumberAsEuclidean - complexToBeSubtractRealNumberAsEuclidean, 2));
-    double imaginaryNumberResultAsPolar = atan((complexToBeSubtractImaginaryNumberAsEuclidean - imaginaryNumberAsEuclidean)/(complexToBeSubtractRealNumberAsEuclidean - realNumberAsEuclidean));
-    
+    double imaginaryNumberResultAsPolar = std::atan2((complexToBeSubtractImaginaryNumberAsEuclidean - imaginaryNumberAsEuclidean), (complexToBeSubtractRealNumberAsEuclidean - realNumberAsEuclidean));
+
     Complex result(realNumberResultAsPolar, imaginaryNumberResultAsPolar);
 
     return result;
