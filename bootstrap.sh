@@ -1,5 +1,19 @@
 set -e
 
+if [ ! -d "./src/dist" ]
+then
+    mkdir ./src/dist
+fi
+
+find . -type f -name '*.h' -exec sed -i 's/packages/../g' {} \;
+
+echo -e "\nGenerating main binary"
+{
+    g++ -c ./src/main.cpp
+    rm -rf ./src/dist/main.o
+    mv ./main.o ./src/dist/
+} &> /dev/null
+
 cd ./src/dist
 rm -rf ./main.exe
 
