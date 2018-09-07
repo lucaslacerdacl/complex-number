@@ -4,6 +4,9 @@ echo "Getting packages"
 {
     dependencies=()
 
+    rm -rf ./packages
+    mkdir packages
+
     for dependencie in "${dependencies[@]}"
         do
             arrDependencie=(${dependencie//;/ })
@@ -13,27 +16,21 @@ echo "Getting packages"
             echo "${dependencieName}"
 
             git clone "${dependencieURL}"
-            rm -rf ./packages
-            mkdir packages
             mv ./"${dependencieName}" ./packages/"${dependencieName}"
 
             cd ./packages/"${dependencieName}"
             ./run.sh
             if [ -f "../../run.sh" ] && [ -f "./packages" ]
             then
-                mv ./packages/* ../../packages
-                rm -rf ./packages
+                if [ ! -d "../../packages/${dependencieName}" ]
+                then
+                    mv ./packages/* ../../packages
+                fi
             fi
             cd ../../
     done
 } &> /dev/null
 
-
-echo -e "\nClean Dist folder"
-{
-    rm -rf ./src/dist
-    mkdir ./src/dist
-} &> /dev/null
 
 echo -e "\nGenerating polar binary"
 {
