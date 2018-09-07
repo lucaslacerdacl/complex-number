@@ -18,7 +18,7 @@ echo "Getting packages"
 
             cd ./packages/"${dependencieName}"
             ./run.sh
-            if [ -f "../../run.sh" ] && [ -d "./packages" ]
+            if [ -f "../../run.sh" ] && [ "$(ls -A ./packages)" ]
             then
                 cp -r -f ./packages/* ../../packages
             fi
