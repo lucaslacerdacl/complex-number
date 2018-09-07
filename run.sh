@@ -34,6 +34,10 @@ echo "Getting packages"
 
 echo -e "\nGenerating polar binary"
 {
+    if [ ! -d "./src/dist" ]
+    then
+        mkdir ./src/dist
+    fi
     g++ -c ./src/implementations/complex.polar.cpp
     rm -rf ./src/dist/complex.polar.o
     mv ./complex.polar.o ./src/dist/
@@ -41,6 +45,10 @@ echo -e "\nGenerating polar binary"
 
 echo -e "\nGenerating euclidean binary"
 {
+    if [ ! -d "./src/dist" ]
+    then
+        mkdir ./src/dist
+    fi
     g++ -c ./src/implementations/complex.euclidean.cpp
     rm -rf ./src/dist/complex.euclidean.o
     mv ./complex.euclidean.o ./src/dist/
@@ -48,6 +56,10 @@ echo -e "\nGenerating euclidean binary"
 
 echo -e "\nGenerating main binary"
 {
+    if [ ! -d "./src/dist" ]
+    then
+        mkdir ./src/dist
+    fi
     g++ -c ./src/main.cpp
     rm -rf ./src/dist/main.o
     mv ./main.o ./src/dist/
