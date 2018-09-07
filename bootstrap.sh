@@ -5,7 +5,7 @@ then
     mkdir ./src/dist
 fi
 
-find . -type f -name '*.h' -exec sed -i 's/packages/../g' {} \;
+find ./packages -type f -name '*.h' -exec sed -i 's/packages/../g' {} \;
 
 echo -e "\nGenerating main binary"
 {
