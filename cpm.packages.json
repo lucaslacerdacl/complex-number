@@ -1,6 +1,6 @@
 {
   "name": "complex-number",
-  "description": "Create complex number library",
+  "description": "Implement methods to operate complex numbers.",
   "version": "1.0.0",
   "dependencies": []
 }
