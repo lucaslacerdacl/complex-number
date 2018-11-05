@@ -35,7 +35,7 @@
 .vscode
 
 # Dist
-src/dist/
+dist/
 
 # Packages
-packages
+cpm_packages
