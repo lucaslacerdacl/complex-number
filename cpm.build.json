@@ -1,6 +1,6 @@
 {
   "fileName": "complex",
   "binaries": [
-    "main.o"
+    "dist/main.o"
   ]
 }
